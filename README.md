@@ -5,6 +5,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [CI/CD pipelines using React, GitHub Actions, and Heroku](https://blog.logrocket.com/ci-cd-pipelines-react-github-actions-heroku/)
 
 [Code Owners File](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
+
+[Using Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+[Using Semantic Versioning](https://semver.org/) and [@semantic-release/github](https://github.com/semantic-release/github#semantic-releasegithub)
+
+
 ## Create App
 
 ```
@@ -165,4 +171,15 @@ git checkout -b feature/workflows
 ```
 git commit -am "add feature codes"
 git push --set-upstream origin feature/workflows
+```
+
+* commitlint
+
+```
+npm install --save-dev @commitlint/{config-conventional,cli}
+npm install --save-dev husky@4
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+
+sudo npm install -g commitizen
+commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
