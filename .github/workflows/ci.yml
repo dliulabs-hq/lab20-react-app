@@ -31,6 +31,15 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - name: Test Drive a private action
+        uses: ./.github/actions/hello
+        id: hello
+        with:
+          who-to-greet: "World"
+      - run: |
+          echo "Time: ${{ steps.hello.outputs.time }}"
+
       - run: npm test -- --coverage
         env:
           CI: true
